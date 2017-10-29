@@ -6,16 +6,16 @@
 
 int main(void)
 {
-  volatile unsigned int tmp;
+    volatile unsigned int tmp;
 
-	tmp = *((const volatile unsigned int *)GPFSEL1);
-  tmp &= ~(0x7 << (3 * 6));
-  tmp |= (0x01 << (3 * 6));
-  *(volatile unsigned int *)GPFSEL1 = tmp;
+    tmp = *((const volatile unsigned int *)GPFSEL1);
+    tmp &= ~(0x7 << (3 * 6));
+    tmp |= (0x01 << (3 * 6));
+    *(volatile unsigned int *)GPFSEL1 = tmp;
 
-  *(volatile unsigned int *)GPSET0 = 0x01 << 16;
+    *(volatile unsigned int *)GPSET0 = 0x01 << 16;
 
-  for ( ; ; );
+    for ( ; ; );
 
-  return 0;
+    return 0;
 }
